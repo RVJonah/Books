@@ -1,0 +1,21 @@
+label {
+	display: block;
+	text-align: left;
+	margin: 0.5% auto;
+	width: 50%;
+	max-width: 175px;
+}
+input {
+	width: 50%;
+	max-width: 175px;
+}
+button {
+	margin: 1% 0 0.5% 0;
+}
+article a {
+	display: block;
+	margin: 1% auto;
+}
+#message {
+	line-height: 150%;
+}

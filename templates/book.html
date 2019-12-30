@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}{{ book["title"] }}{% endblock %}
+{% block head %}
+<script src="../static/javascript/review.js"></script>
+<link rel='stylesheet' href='../static/css/book.css'>
+{% endblock %}
+
+{% block articleheader %}{{ book["title"] }}{% endblock %}
+
+{% block section1 %}
+<section class='bookInfo'>
+	<ul>
+		<li id="isbn"><strong>ISBN:</strong> {{ book["isbn"] }}</li>
+		<li id="author"><strong>Author:</strong> {{ book["author"] }}</li>
+		<li id="date"><strong>Date of Publishing:</strong> {{ book["year"] }}</li>
+		<li id="averageRating"><strong>Average BookReads rating:</strong> {{ book["average_score"] }} (/ 5)</li>
+		<li id="numberOfBooks"><strong>Number of BookReads ratings:</strong> {{ book["review_count"] }}</li>
+	</ul>
+</section>
+<section class='reviews'>
+	<h2>Reviews</h2>
+	{% for review in all_reviews %}
+	<div class="pastReview">
+		<h3>{{review["review_title"]}}</h3>
+		<p class='pastReviewText'>{{review["review_text"]}}</p>
+		<p class='pastRating'>Book Rating: {{review["review_rating"]}}</p>
+		{% endfor %}
+	</div>
+</section>
+{% endblock %}
+
+{% block section2 %}
+<h2>Write a review</h2>
+<form id="reviewForm" action="{{url_for('review_route')}}" method="post">
+	<label>Review Title: <input type="text" name="review_title" value="{{review['review_title']}}" id="reviewTitle"></label>
+	<div class="textarea">
+		<textarea 
+			placeholder="Write your review here..." 
+			maxlength="1000" 
+			name="review_text"
+			id="reviewText">{{ review['review_text']}}</textarea>
+		<p id="textareaLength"></p>
+	</div>
+	<div class="radios">
+		<h3>Your Rating</h3>
+		<label>1<input type="radio" name="review_rating" value="1" {%if review['review_rating']==1%}checked{% endif %}></label>
+		<label>2<input type="radio" name="review_rating" value="2" {%if review['review_rating']==2%}checked{% endif %}></label>
+		<label>3<input type="radio" name="review_rating" value="3" {%if review['review_rating']==3%}checked{% endif %}></label>
+		<label>4<input type="radio" name="review_rating" value="4" {%if review['review_rating']==4%}checked{% endif %}></label>
+		<label>5<input type="radio" name="review_rating" value="5" {%if review['review_rating']==5%}checked{% endif %}></label>
+	</div>
+	<div class="buttons">
+		<button type="submit" id="reviewSubmitButton">Submit</button>
+		<button type="reset">Clear</button>
+	</div>
+</form>
+<button type="button" id="reviewDeleteButton">Delete Review</button>
+<div id="message"></div>
+{% endblock %}

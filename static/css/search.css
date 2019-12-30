@@ -1,0 +1,21 @@
+table, td, th {
+	margin: 1% auto;
+	border: 2px solid white;
+}
+table {
+	width: 50%;
+}
+td, th, td a {
+	padding: 0.5%;
+}
+select {
+	margin: 0.5%;
+}
+@media (max-width: 599px) {
+	table {
+		width: 95%;
+	}
+}
+#searchResults{
+	margin: 1%;
+}

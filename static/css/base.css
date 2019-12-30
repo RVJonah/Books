@@ -1,0 +1,50 @@
+article {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+h1 {
+	margin: 0.5%;
+}
+nav ul {
+	text-align: left;
+}
+nav ul li {
+	display: inline-block;
+	margin: 0 0 0.5% 0;
+	width: 20%;
+	line-height: 300%;
+	border: 2px solid white;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+nav ul li:last-of-type {
+	float: right;
+}
+nav ul li a {
+	display: block;
+	width: 100%;
+	line-height: 300%;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.534);
+	font-weight: bold;
+}
+a:visited {
+	color: white;
+}
+article {
+	border: 2px solid white;
+}
+form {
+	margin: 0.5%;
+}
+button {
+	color: white;
+	background-color: black;
+}
+button:hover {
+	color: black;
+	background-color: white;
+}
+img {
+	width: 40%;
+	margin: 2% auto;
+}
+

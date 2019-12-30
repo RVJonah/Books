@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+Register with Books
+{% endblock %}
+
+{% block head %}
+<script src='../static/javascript/register.js'></script>
+<link rel='stylesheet' href='../static/css/login.css'>
+{% endblock %}
+{% block articleheader %}
+Register
+{% endblock %}
+{% block section1 %}
+<form id="registrationForm" action="{{url_for('register_route')}}" method="post">
+  <label for="username">Username </label>
+  <input type="text" name="username" id="username" title="Username" autocomplete="off">
+  <label for="username">Password </label>
+  <input type="password" name="password" id="password" title="Password" autocomplete="off">
+  <label for="confirmPassword">Confirm Password </label>
+  <input type="password" name="confirmPassword" id="confirmPassword" title="Confirmed Password" autocomplete="off">
+  <label for="email">Email </label>
+  <input type="email" name="email" id="email" title="Email" autocomplete="email">
+  <label for="confirmEmail">Confirm Email </label>
+  <input type="email" name="confirmEmail" id="confirmEmail" title="Confirmed Email" autocomplete="email">
+</form>
+<button type="submit" form="registrationForm" id="registerButton">Register</button>
+<p id="message"></p>
+{% endblock %}

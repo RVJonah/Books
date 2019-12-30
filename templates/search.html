@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Books Search{% endblock %}
+
+{% block head %}
+<script src='../static/javascript/search.js'></script>
+<link rel='stylesheet' href='../static/css/search.css'>
+{% endblock %}
+
+{% block articleheader %}Search{% endblock %}
+
+{% block section1 %}
+<h2>Search for a book</h2>
+<form id="searchForm" action="{{url_for('search_route')}}" method="post">
+	<label for='searchType'>
+		Search By: 
+		<select name='searchType'>
+			<option name='isbn' id='ISBN'>ISBN</option>
+			<option name='title' id='title'>Book Title</option>
+			<option name='author' id='author'>Author</option>
+		</select>
+	</label>
+	<input type='text' name='searchText' id='searchText'>
+	<button type="submit" id='searchButton'>Search</button>
+</form>
+<p id=searchResults></p>
+{% endblock %}

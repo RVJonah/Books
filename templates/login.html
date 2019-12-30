@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+<link rel='stylesheet' href='../static/css/login.css'>
+<script src='../static/javascript/login.js'></script>
+{% endblock %}
+{% block articleheader %}
+Books Login
+{% endblock %}
+{% block section1 %}
+<section>
+    <form id="loginform" action="{{url_for('login_route')}}" method="post">
+      <label for="username">Username</label>
+      <input type="text" autofocus name="username" id="username" title="Username" autocomplete="username">
+      <label for="password">Password</label>
+      <input type="password" name="password" title="Password" autocomplete="current-password">
+    </form>
+    <button type="submit" form="loginform" id="loginButton">Log In</button>
+    <a href="{{ url_for('register_route') }}">Register</a>
+    <p id="message"></p>
+</section>
+{% endblock %}
