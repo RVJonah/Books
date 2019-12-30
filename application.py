@@ -4,7 +4,7 @@ from flask import Flask, jsonify, redirect, render_template, request, session, u
 from flask_session import Session
 from flask_talisman import Talisman
 from sqlalchemy.orm import sessionmaker
-from .database import initiate_database
+from database import initiate_database
 from .python import login_required, login_user, is_user_unique, register_user, is_data_present, book_search, sql_results_to_dict, add_change_review, delete_review, get_review, add_goodreads_data
 app = Flask(__name__)
 database = initiate_database()
