@@ -2,6 +2,7 @@ import requests
 import json
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for, make_response
 from flask_session import Session
+from flask_talisman import Talisman
 from sqlalchemy.orm import sessionmaker
 from .database import initiate_database
 from .python import login_required, login_user, is_user_unique, register_user, is_data_present, book_search, sql_results_to_dict, add_change_review, delete_review, get_review, add_goodreads_data
@@ -12,6 +13,7 @@ database = initiate_database()
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
+Talisman(app)
 db_session = sessionmaker(database['engine'])
 db = db_session()
 Books = database['books']
@@ -105,4 +107,4 @@ def book_api(isbn):
   return jsonify(book), 200
 
 if __name__ == "__main__":
-    app.run(ssl_context='adhoc')
+    app.run()
