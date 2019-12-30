@@ -103,3 +103,6 @@ def book_api(isbn):
   book = sql_results_to_dict(book)[0]
   add_goodreads_data(book, isbn)
   return jsonify(book), 200
+
+if __name__ == "__main__":
+    app.run(ssl_context='adhoc')
