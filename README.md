@@ -22,3 +22,4 @@ The final function of this app is the API service. This uses the /API/<ISBN> rou
   DATABASE_URI= your database uri
   GOODREADS_KEY= your goodreads api key
 
+To populate your database with the books found in books.csv run the import.py script.
